@@ -1,0 +1,675 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ysyx-预学习阶段-C语言学习 | Sin-kider's Blog</title><meta name="author" content="Sin-kider"><meta name="copyright" content="Sin-kider"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#DCDCDC"><meta name="description" content="ysyx-预学习阶段-C语言学习代码仓库及相关网页 Sin_kider&#x2F;c_learn ysyx官方网址 Learn C the hard way  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装 ysyx-预学习阶段-Linux-基本使用 ysyx-预学习阶段-C语言学习 ✨ ysyx-预学习阶段-verilog学习-搭建verilator仿真环境 ysyx-预学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ysyx-预学习阶段-C语言学习">
+<meta property="og:url" content="https://sin-kider.github.io/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Sin-kider&#39;s Blog">
+<meta property="og:description" content="ysyx-预学习阶段-C语言学习代码仓库及相关网页 Sin_kider&#x2F;c_learn ysyx官方网址 Learn C the hard way  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装 ysyx-预学习阶段-Linux-基本使用 ysyx-预学习阶段-C语言学习 ✨ ysyx-预学习阶段-verilog学习-搭建verilator仿真环境 ysyx-预学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://sin-kider.github.io/img/resource/head.jpg">
+<meta property="article:published_time" content="2023-03-11T11:54:36.000Z">
+<meta property="article:modified_time" content="2023-09-10T14:25:25.682Z">
+<meta property="article:author" content="Sin-kider">
+<meta property="article:tag" content="ysyx">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="Makefile">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sin-kider.github.io/img/resource/head.jpg"><link rel="shortcut icon" href="/img/resource/head.jpg"><link rel="canonical" href="https://sin-kider.github.io/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ysyx-预学习阶段-C语言学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-10 22:25:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#696969')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#DCDCDC')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><span id="fps"></span><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/resource/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Sin-kider's Blog"><span class="site-name">Sin-kider's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ysyx-预学习阶段-C语言学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-11T11:54:36.000Z" title="发表于 2023-03-11 19:54:36">2023-03-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-10T14:25:25.682Z" title="更新于 2023-09-10 22:25:25">2023-09-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ysyx-预学习阶段-C语言学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ysyx-预学习阶段-C语言学习"><a href="#ysyx-预学习阶段-C语言学习" class="headerlink" title="ysyx-预学习阶段-C语言学习"></a>ysyx-预学习阶段-C语言学习</h1><h2 id="代码仓库及相关网页"><a href="#代码仓库及相关网页" class="headerlink" title="代码仓库及相关网页"></a>代码仓库及相关网页</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/sin-kider/c_learn">Sin_kider&#x2F;c_learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://ysyx.oscc.cc/">ysyx官方网址</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cntofu.com/book/25/index.html">Learn C the hard way</a></li>
+</ul>
+<h2 id="一生一芯实验报告目录"><a href="#一生一芯实验报告目录" class="headerlink" title="一生一芯实验报告目录"></a>一生一芯实验报告目录</h2><ul>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/">ysyx-预学习阶段-Linux-WSL安装</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">ysyx-预学习阶段-Linux-基本使用</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/11/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">ysyx-预学习阶段-C语言学习</a> ✨</li>
+<li><a href="https://sin-kider.github.io/2023/03/18/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/23/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU">ysyx-预学习阶段-PA1-NEMU</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/25/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F">ysyx-预学习阶段-如何科学地提问-读后感</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/01/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E6%80%BB%E7%BB%93">ysyx-预学习阶段-总结</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E7%94%A8RTL%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8-%E7%94%A8Chisel%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%91%A8%E6%9C%9Friscv64%E5%A4%84%E7%90%86%E5%99%A8">ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E6%94%AF%E6%8C%81RV64IM%E7%9A%84NEMU-%E7%94%A8NEMU%E8%BF%90%E8%A1%8Criscv64%E7%9A%84%E7%A8%8B%E5%BA%8F">ysyx-B阶段-支持RV64IM的NEMU-用NEMU运行riscv64的程序</a></li>
+</ul>
+<h2 id="Learn-C-the-hard-way-习题"><a href="#Learn-C-the-hard-way-习题" class="headerlink" title="Learn C the hard way 习题"></a>Learn C the hard way 习题</h2><h3 id="ex1"><a href="#ex1" class="headerlink" title="ex1"></a>ex1</h3><ol>
+<li>在你的文本编辑器中打开<code>ex1</code>文件，随机修改或删除一部分，之后运行它看看发生了什么<ul>
+<li>产生了各种不同的报错</li>
+<li>就算原封不动进行编译也会产生错误<code>warning: implicit declaration of function ‘puts’</code></li>
+</ul>
+</li>
+<li>再多打印5行文本或者其它比<code>&quot;Hello world.&quot;</code>更复杂的东西<ul>
+<li>请查看分支<code>ex1</code>代码</li>
+</ul>
+</li>
+<li>执行<code>man 3 puts</code>来阅读这个函数和其它函数的文档<ul>
+<li>输出了pust函数的使用方法(后续类似习题将跳过说明)</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex2"><a href="#ex2" class="headerlink" title="ex2"></a>ex2</h3><ol>
+<li>创建目标<code>all:ex1</code>，可以以单个命令<code>make</code>构建<code>ex1</code><ul>
+<li>事先已写好<code>Makefile</code>, 请查看分支<code>ex2</code>代码</li>
+</ul>
+</li>
+<li>阅读<code>man make</code>来了解关于如何执行它的更多信息<ul>
+<li>已阅😊</li>
+</ul>
+</li>
+<li>阅读<code>man cc</code>来了解关于<code>-Wall</code>和<code>-g</code>行为的更多信息<ul>
+<li>已阅😊</li>
+</ul>
+</li>
+<li>在互联网上搜索Makefile文件，看看你是否能改进你的文件<ul>
+<li>学习<code>nemu</code>与<code>nvboard</code>时已写好相对完整的<code>Makefile</code></li>
+</ul>
+</li>
+<li>在另一个C语言项目中找到<code>Makefile</code>文件，并且尝试理解它做了什么<ul>
+<li>同上</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex3"><a href="#ex3" class="headerlink" title="ex3"></a>ex3</h3><ol>
+<li>找到尽可能多的方法使<code>ex3</code>崩溃<ul>
+<li>删除全部或部分分号, 括号, 关键词, 引号</li>
+<li>printf不提供参数</li>
+</ul>
+</li>
+<li>执行man 3 printf来阅读其它可用的’%’格式化占位符。如果你在其它语言中使用过它们，应该看着非常熟悉<ul>
+<li>已阅😊</li>
+</ul>
+</li>
+<li>将<code>ex3</code>添加到你的<code>Makefile</code>的<code>all</code>列表中。到目前为止，可以使用<code>make clean all</code>来构建你所有的练习<ul>
+<li>我的makefile未遵从书中所给的方式编写, 所以跳过</li>
+</ul>
+</li>
+<li>将<code>ex3</code>添加到你的<code>Makefile</code>的<code>clean</code>列表中。当你需要的时候使用<code>make clean</code>可以删除它<ul>
+<li>同上</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex4"><a href="#ex4" class="headerlink" title="ex4"></a>ex4</h3><ol>
+<li>按照上面的指导，使用<code>Valgrind</code>和编译器修复这个程序<ul>
+<li>修改结果见代码</li>
+<li>makefile中添加了val选项, 可直接用<code>Valgrind</code>运行程序</li>
+</ul>
+</li>
+<li>在互联网上查询<code>Valgrind</code>相关的资料<ul>
+<li>已阅😊</li>
+</ul>
+</li>
+<li>下载另一个程序并手动构建它。尝试一些你已经使用，但从来没有手动构建的程序<ul>
+<li>已做😊</li>
+</ul>
+</li>
+<li>看看<code>Valgrind</code>的源码是如何在目录下组织的，并且阅读它的<code>Makefile</code>文件<ul>
+<li>看的我脑壳疼</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex5"><a href="#ex5" class="headerlink" title="ex5"></a>ex5</h3><ol>
+<li>对于每一行，写出你不理解的符号，并且看看是否能猜出它们的意思。在纸上写下你的猜测，你可以在以后检查它，看看是否正确<ul>
+<li>已学习过全部内容</li>
+</ul>
+</li>
+<li>回头去看之前几个练习的源代码，并且像这样分解代码，来看看你是否了解它们。写下你不了解和不能自己解释的东西<ul>
+<li>同上</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex6"><a href="#ex6" class="headerlink" title="ex6"></a>ex6</h3><ol>
+<li>寻找其他通过修改printf使这段C代码崩溃的方法<ul>
+<li>1️⃣修改格式控制符</li>
+<li>2️⃣修改参数位置</li>
+<li>3️⃣删除参数</li>
+</ul>
+</li>
+<li>搜索<code>“printf格式化”</code>，试着使用一些高级的占位符<ul>
+<li>%2d %.2f %x</li>
+</ul>
+</li>
+<li>研究可以用几种方法打印数字<ul>
+<li>%o %x</li>
+</ul>
+</li>
+<li>试着打印空字符串，即<code>&quot;&quot;</code><ul>
+<li>结果输出了<code>%</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="ex7"><a href="#ex7" class="headerlink" title="ex7"></a>ex7</h3><ol>
+<li>把为universe_of_defects赋值的数改为不同的大小，观察编译器的警告<ul>
+<li>过大时发生警告<code>warning: integer constant is too large for its type</code></li>
+</ul>
+</li>
+<li>这些巨大的数字实际上打印成了什么<ul>
+<li>打印结果有负数有正数</li>
+</ul>
+</li>
+<li>将<code>long</code>改为<code>unsigned long</code>，并试着找到对它来说太大的数字<ul>
+<li>😁找到了(doge)</li>
+</ul>
+</li>
+<li>上网搜索<code>unsigned</code>做了什么<ul>
+<li>将符号位去除, 全部用于表示数字</li>
+</ul>
+</li>
+<li>试着自己解释（在下个练习之前）为什么<code>char</code>可以和<code>int</code>相乘<ul>
+<li>char是使用数进行存储, 本质上是数字, 所以可以参与计算</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex8"><a href="#ex8" class="headerlink" title="ex8"></a>ex8</h3><ol>
+<li>尝试使用<code>areas[0] = 100;</code>以及相似的操作对<code>areas</code>的元素赋值<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>尝试对<code>name</code>和<code>full_name</code>的元素赋值<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>尝试将<code>areas</code>的一个元素赋值为<code>name</code>中的字符<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>上网搜索在不同的CPU上整数所占的不同大小<ul>
+<li>根据CPU位数不同整数的占用也不同,常见的有2字节与4字节</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex9"><a href="#ex9" class="headerlink" title="ex9"></a>ex9</h3><ol>
+<li>将一些字符赋给<code>numbers</code>的元素，之后用<code>printf</code>一次打印一个字符，你会得到什么编译器警告<ul>
+<li>我将字符以几种方式赋值给<code>numbers</code>后编译器并未报错🧐(以前写c也这样干过, 也没遇见过报错啊)</li>
+</ul>
+</li>
+<li>对<code>names</code>执行上述的相反操作，把<code>names</code>当成<code>int</code>数组，并一次打印一个<code>int</code>，<code>Valgrind</code>会提示什么<ul>
+<li>还是没报错, 是我问题吗🧐</li>
+</ul>
+</li>
+<li>有多少种其它的方式可以用来打印它<ul>
+<li>1️⃣for</li>
+<li>2️⃣while</li>
+<li>3️⃣四个printf</li>
+<li>4️⃣有些阴间想法就不在这里写了😋</li>
+</ul>
+</li>
+<li>如果一个字符数组占四个字节，一个整数也占<code>4</code>个字节，你可以像整数一样使用整个<code>name</code>吗？你如何用黑魔法实现它？<ul>
+<li>读取: 通过位运算读取字符数组每一位后, 计算实际的值; 写入: 位运算将待写入的值转为二进制, 高位为符号位(这题出现在这是不是有问题🤔, 或者是我想复杂了)</li>
+</ul>
+</li>
+<li>拿出一张纸，将每个数组画成一排方框，之后在纸上画出代码中的操作，看看是否正确<ul>
+<li>懒🥲</li>
+</ul>
+</li>
+<li>将<code>name</code>转换成<code>another</code>的形式，看看代码是否能正常工作<ul>
+<li>挺正常😊(至少比我正常)</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex10"><a href="#ex10" class="headerlink" title="ex10"></a>ex10</h3><ol>
+<li>弄清楚在<code>for</code>循环的每一部分你都可以放置什么样的代码<ul>
+<li>这个确实之前没有仔细研究过, 花了点时间总结了一下<ul>
+<li>第一部分可以定义和变量赋值, 多个赋值可用<code>,</code>隔开</li>
+<li>第二部分用于判断, 可写判断语句, 包括有返回值的函数</li>
+<li>第三部分想些啥写啥, 多个语句可用<code>,</code>隔开, 但多用于控制循环</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>查询如何使用<code>&#39;,&#39;</code>（逗号）字符来在for循环的每一部分中，<code>&#39;;&#39;</code>（分号）之间分隔多条语句<ul>
+<li>上一题有提到, 略</li>
+</ul>
+</li>
+<li>查询<code>NULL</code>是什么东西，尝试将它用做<code>states</code>的一个元素，看看它会打印出什么<ul>
+<li>在<code>stdio.h</code>中定义为<code>#define NULL ((void*)0)</code>, 一般用于定义空指针, 打印出来是一段字符<code>(null)</code>(虽然我觉得这里应该会报错😔)</li>
+</ul>
+</li>
+<li>看看你是否能在打印之前将states的一个元素赋值给argv中的元素，再试试相反的操作<ul>
+<li>两种都可以😎</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex11"><a href="#ex11" class="headerlink" title="ex11"></a>ex11</h3><ol>
+<li>让这些循环倒序执行，通过使用<code>i--</code>从<code>argc</code>开始递减直到<code>0</code>。你可能需要做一些算数操作让数组的下标正常工作<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>使用<code>while</code>循环将<code>argv</code>中的值复制到<code>states</code><ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>让这个复制循环不会执行失败，即使<code>argv</code>之中有很多元素也不会全部放进<code>states</code><ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>研究你是否真正复制了这些字符串。答案可能会让你感到意外和困惑<ul>
+<li>没, 就是改了个地址, 指向了同一个地址而已</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex12"><a href="#ex12" class="headerlink" title="ex12"></a>ex12</h3><ol>
+<li>我已经向你简短地介绍了<code>&amp;&amp;</code>，它执行“与”操作。上网搜索与之不同的“布尔运算符”<ul>
+<li>会了, 不想搜😎</li>
+</ul>
+</li>
+<li>为这个程序编写更多的测试用例，看看你会写出什么<ul>
+<li>这个也会, 不想写😎</li>
+</ul>
+</li>
+<li>回到练习10和11，使用if语句使循环提前退出<ul>
+<li>会…算了, 我写(不然太摆了😂, 项目代码没变是因为我提交了, 懒得回头再提交搞得分支太乱了)</li>
+</ul>
+</li>
+<li>第一个判断所输出的话真的正确吗<ul>
+<li>聪明的我发现不对! 还改正了!</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex13"><a href="#ex13" class="headerlink" title="ex13"></a>ex13</h3><ol>
+<li>编写另一个程序，在字母上做算术运算将它们转换为小写，并且在<code>switch</code>中移除所有额外的大写字母<ul>
+<li>简单写了个函数, 具体看代码</li>
+</ul>
+</li>
+<li>使用<code>&#39;,&#39;</code>（逗号）在<code>fo</code>r循环中初始化<code>letter</code><ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>使用另一个for循环来让它处理你传入的所有命令行参数<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>将这个<code>switch</code>语句转为<code>if</code>语句，你更喜欢哪个呢<ul>
+<li>哪个好看用哪个</li>
+</ul>
+</li>
+<li>在“Y”的例子中，我在<code>if</code>代码块外面写了个<code>break</code>。这样会产生什么效果？如果把它移进<code>if</code>代码块，会发生什么？自己试着解答它，并证明你是正确的<ul>
+<li>1️⃣执行完<code>case</code>后就结束<code>switch</code></li>
+<li>2️⃣<code>if</code>条件满足就结束<code>switch</code>, 否则继续执行下一个<code>case</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="ex14"><a href="#ex14" class="headerlink" title="ex14"></a>ex14</h3><ol>
+<li>重新编写这些函数，使它们的数量减少。比如，你真的需要<code>can_print_it</code>吗？<ul>
+<li>改完了, 不过我确实经常这么干</li>
+</ul>
+</li>
+<li>使用<code>strlen</code>函数，让<code>print_arguments</code>知道每个字符串参数都有多长，之后将长度传入<code>print_letters</code>。然后重写<code>print_letters</code>，让它只处理固定的长度，不按照<code>&#39;\0&#39;</code>终止符。你需要<code>#include &lt;string.h&gt;</code>来实现它<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>使用<code>man</code>来查询<code>isalpha</code>和<code>isblank</code>的信息<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>上网浏览不同的人喜欢什么样的函数格式<ul>
+<li>我倒是挺喜欢<code>allman</code>的, 但是被迫<code>Stroustrup</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="ex15"><a href="#ex15" class="headerlink" title="ex15"></a>ex15</h3><ol>
+<li>使用访问指针的方式重写所有使用数组的地方<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>使用访问数组的方式重写所有使用指针的地方<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>在其它程序中使用指针来代替数组访问<ul>
+<li>用了, 你们看不到😎</li>
+</ul>
+</li>
+<li>使用指针来处理命令行参数，就像处理<code>names</code>那样<ul>
+<li>用了, 你们看不到😎</li>
+</ul>
+</li>
+<li>将获取值和获取地址组合到一起<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>在程序末尾添加一个<code>for</code>循环，打印出这些指针所指向的地址。你需要在<code>printf</code>中使用<code>%p</code><ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>对于每一种打印数组的方法，使用函数来重写程序<ul>
+<li>用了, 你们看不到😎</li>
+</ul>
+</li>
+<li>将<code>for</code>循环改为<code>while</code>循环，并且观察对于每种指针用法哪种循环更方便<ul>
+<li>用了, 你们看不到😎(咋这么多)</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex16"><a href="#ex16" class="headerlink" title="ex16"></a>ex16</h3><ol>
+<li>如何在栈上创建结构体，就像你创建任何其它变量那样<ul>
+<li><code>struct Person who;</code></li>
+</ul>
+</li>
+<li>如何使用<code>x.y</code>而不是<code>x-&gt;y</code>来初始化结构体<ul>
+<li>在栈区创建结构体就能用<code>x.y</code></li>
+</ul>
+</li>
+<li>如何不使用指针来将结构体传给其它函数<ul>
+<li>直接将结构体传给函数</li>
+<li>把所有参数逐个传给函数</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex17"><a href="#ex17" class="headerlink" title="ex17"></a>ex17</h3><ol>
+<li><code>die</code>函数需要接收<code>conn</code>变量作为参数，以便执行清理并关闭它<ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>修改代码，使其接收参数作为<code>MAX_DATA</code>和<code>MAX_ROWS</code>，将它们储存在<code>Database</code>结构体中，并且将它们写到文件。这样就可以创建任意大小的数据库<ul>
+<li>这一题我没有想到有什么简单的方法去解决, 原本想法是将所有结构体中的char数组改为char指针, 然后通过malloc分配, 但是后续发现这一方法及其麻烦, 希望有大佬能解答.</li>
+</ul>
+</li>
+<li>向数据库添加更多操作，比如<code>find</code><ul>
+<li>修改结果见代码😎</li>
+</ul>
+</li>
+<li>查询C如何打包结构体，并且试着弄清楚为什么你的文件是相应的大小<ul>
+<li>奇妙的内存对齐</li>
+</ul>
+</li>
+<li>向<code>Address</code>添加一些字段，使它们可被搜索<ul>
+<li>感觉和第三题有点重复, 无非就是循环找匹配的项目输出</li>
+</ul>
+</li>
+<li>尝试重构程序，使用单一的全局变量来储存数据库连接<ul>
+<li>全局变量方便多了</li>
+</ul>
+</li>
+<li>搜索“栈数据结构”，并且在你最喜欢的语言中实现它，然后尝试在C中实现<ul>
+<li>相关代码在<code>stack.c</code>内</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex18"><a href="#ex18" class="headerlink" title="ex18"></a>ex18</h3><ol>
+<li>用十六进制编辑器打开ex18，接着找到函数起始处的十六进制代码序列，看看是否能在原始程序中找到函数<ul>
+<li>找到了</li>
+</ul>
+</li>
+<li>在你的十六进制编辑器中找到更多随机出现的东西并修改它们。重新运行你的程序看看发生了什么<ul>
+<li>改了一下<code>USAGE: ex18 4 3 1 5 6</code>这句, 运行后确实变化了</li>
+</ul>
+</li>
+<li>将错误的函数传给compare_cb，并看看C编辑器会报告什么错误<ul>
+<li>我初始化了一个函数指针, 把NULL传给了指针后, 给将指针传给了函数, 但是只有<code>make</code>报错了:<code>Segmentation fault</code></li>
+</ul>
+</li>
+<li>将<code>NULL</code>传给它，看看程序中会发生什么。然后运行<code>Valgrind</code>来看看它会报告什么<ul>
+<li>怪事, 编译器报错, 但是<code>valgrind</code>没报错</li>
+</ul>
+</li>
+<li>编写另一个排序算法，修改test_sorting使它接收任意的排序函数和排序函数的比较回调<ul>
+<li>写了个选排, 菜鸡不会高级排序(doge)</li>
+</ul>
+</li>
+</ol>
+<h3 id="ex32-ex33-ex42-ex44"><a href="#ex32-ex33-ex42-ex44" class="headerlink" title="ex32 ex33 ex42 ex44"></a>ex32 ex33 ex42 ex44</h3><ol>
+<li>关于两种链表的不同<ul>
+<li>单向增删麻烦, 占用小</li>
+<li>双向可进可退, 增删挺方便, 但会消耗更多的内存</li>
+</ul>
+</li>
+<li>写ex33遇到的问题: 编译器提示 <code>inline</code> 函数没有定义, 在头文件中添加也无用. STFW发现三种解决方案.<ul>
+<li>将 <code>inline</code> 函数改为 <code>static inline</code></li>
+<li>编译选项加上 <code>-O</code> 优化</li>
+<li>添加无 <code>inline</code> 的原型声明</li>
+</ul>
+</li>
+<li>关于数据结构<ul>
+<li>从前没想过可以这么构建<code>stack</code>与<code>queue</code>, 确实比复制一份后修改来的简单</li>
+</ul>
+</li>
+<li>自己写测试有些麻烦<ul>
+<li><del>所以偷个懒</del></li>
+</ul>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io">Sin-kider</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">https://sin-kider.github.io/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://sin-kider.github.io" target="_blank">Sin-kider's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ysyx/">ysyx</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/C/">C</a><a class="post-meta__tags" href="/tags/Makefile/">Makefile</a></div><div class="post_share"><div class="social-share" data-image="/img/resource/head.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="ysyx-预学习阶段-Linux-基本使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ysyx-预学习阶段-Linux-基本使用</div></div></a></div><div class="next-post pull-right"><a href="/2023-03-18-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83/" title="ysyx-预学习阶段-verilog学习-搭建verilator仿真环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023-03-23-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU/" title="ysyx-预学习阶段-PA1-NEMU"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">ysyx-预学习阶段-PA1-NEMU</div></div></a></div><div><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/" title="ysyx-预学习阶段-Linux-WSL安装"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-04</div><div class="title">ysyx-预学习阶段-Linux-WSL安装</div></div></a></div><div><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="ysyx-预学习阶段-Linux-基本使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-04</div><div class="title">ysyx-预学习阶段-Linux-基本使用</div></div></a></div><div><a href="/2023-03-18-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83/" title="ysyx-预学习阶段-verilog学习-搭建verilator仿真环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-18</div><div class="title">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</div></div></a></div><div><a href="/2023-04-07-ysyx-B%E9%98%B6%E6%AE%B5-%E7%94%A8RTL%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8-%E7%94%A8Chisel%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%91%A8%E6%9C%9Friscv64%E5%A4%84%E7%90%86%E5%99%A8/" title="ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器[施工中]"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-07</div><div class="title">ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器[施工中]</div></div></a></div><div><a href="/2023-03-25-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F/" title="ysyx-预学习阶段-如何科学地提问-读后感"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">ysyx-预学习阶段-如何科学地提问-读后感</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">ysyx-预学习阶段-C语言学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%BD%91%E9%A1%B5"><span class="toc-number">1.1.</span> <span class="toc-text">代码仓库及相关网页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%94%9F%E4%B8%80%E8%8A%AF%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E7%9B%AE%E5%BD%95"><span class="toc-number">1.2.</span> <span class="toc-text">一生一芯实验报告目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learn-C-the-hard-way-%E4%B9%A0%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">Learn C the hard way 习题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ex1"><span class="toc-number">1.3.1.</span> <span class="toc-text">ex1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex2"><span class="toc-number">1.3.2.</span> <span class="toc-text">ex2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex3"><span class="toc-number">1.3.3.</span> <span class="toc-text">ex3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex4"><span class="toc-number">1.3.4.</span> <span class="toc-text">ex4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex5"><span class="toc-number">1.3.5.</span> <span class="toc-text">ex5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex6"><span class="toc-number">1.3.6.</span> <span class="toc-text">ex6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex7"><span class="toc-number">1.3.7.</span> <span class="toc-text">ex7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex8"><span class="toc-number">1.3.8.</span> <span class="toc-text">ex8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex9"><span class="toc-number">1.3.9.</span> <span class="toc-text">ex9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex10"><span class="toc-number">1.3.10.</span> <span class="toc-text">ex10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex11"><span class="toc-number">1.3.11.</span> <span class="toc-text">ex11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex12"><span class="toc-number">1.3.12.</span> <span class="toc-text">ex12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex13"><span class="toc-number">1.3.13.</span> <span class="toc-text">ex13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex14"><span class="toc-number">1.3.14.</span> <span class="toc-text">ex14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex15"><span class="toc-number">1.3.15.</span> <span class="toc-text">ex15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex16"><span class="toc-number">1.3.16.</span> <span class="toc-text">ex16</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex17"><span class="toc-number">1.3.17.</span> <span class="toc-text">ex17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex18"><span class="toc-number">1.3.18.</span> <span class="toc-text">ex18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex32-ex33-ex42-ex44"><span class="toc-number">1.3.19.</span> <span class="toc-text">ex32 ex33 ex42 ex44</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sin-kider</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://sin-kider.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer src="/js/cursor.js"></script><script async src="/js/fps.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,192,203" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

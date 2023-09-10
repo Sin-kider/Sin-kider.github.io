@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ysyx-预学习阶段-Linux-WSL安装 | Sin-kider's Blog</title><meta name="author" content="Sin-kider"><meta name="copyright" content="Sin-kider"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#DCDCDC"><meta name="description" content="ysyx-预学习阶段-Linux-WSL安装代码仓库及相关网页 ysyx官方网址  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装 ✨ ysyx-预学习阶段-Linux-基本使用 ysyx-预学习阶段-C语言学习 ysyx-预学习阶段-verilog学习-搭建verilator仿真环境 ysyx-预学习阶段-PA1-NEMU ysyx-预学习阶段-如何科学地提问-读后感 ysy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ysyx-预学习阶段-Linux-WSL安装">
+<meta property="og:url" content="https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="Sin-kider&#39;s Blog">
+<meta property="og:description" content="ysyx-预学习阶段-Linux-WSL安装代码仓库及相关网页 ysyx官方网址  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装 ✨ ysyx-预学习阶段-Linux-基本使用 ysyx-预学习阶段-C语言学习 ysyx-预学习阶段-verilog学习-搭建verilator仿真环境 ysyx-预学习阶段-PA1-NEMU ysyx-预学习阶段-如何科学地提问-读后感 ysy">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://sin-kider.github.io/img/resource/head.jpg">
+<meta property="article:published_time" content="2023-03-04T09:07:38.000Z">
+<meta property="article:modified_time" content="2023-09-10T14:25:25.682Z">
+<meta property="article:author" content="Sin-kider">
+<meta property="article:tag" content="ysyx">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="WSL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sin-kider.github.io/img/resource/head.jpg"><link rel="shortcut icon" href="/img/resource/head.jpg"><link rel="canonical" href="https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ysyx-预学习阶段-Linux-WSL安装',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-10 22:25:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#696969')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#DCDCDC')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><span id="fps"></span><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/resource/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Sin-kider's Blog"><span class="site-name">Sin-kider's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ysyx-预学习阶段-Linux-WSL安装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-04T09:07:38.000Z" title="发表于 2023-03-04 17:07:38">2023-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-10T14:25:25.682Z" title="更新于 2023-09-10 22:25:25">2023-09-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">896</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ysyx-预学习阶段-Linux-WSL安装"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ysyx-预学习阶段-Linux-WSL安装"><a href="#ysyx-预学习阶段-Linux-WSL安装" class="headerlink" title="ysyx-预学习阶段-Linux-WSL安装"></a>ysyx-预学习阶段-Linux-WSL安装</h1><h2 id="代码仓库及相关网页"><a href="#代码仓库及相关网页" class="headerlink" title="代码仓库及相关网页"></a>代码仓库及相关网页</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ysyx.oscc.cc/">ysyx官方网址</a></li>
+</ul>
+<h2 id="一生一芯实验报告目录"><a href="#一生一芯实验报告目录" class="headerlink" title="一生一芯实验报告目录"></a>一生一芯实验报告目录</h2><ul>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/">ysyx-预学习阶段-Linux-WSL安装</a> ✨</li>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">ysyx-预学习阶段-Linux-基本使用</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/11/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">ysyx-预学习阶段-C语言学习</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/18/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/23/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU">ysyx-预学习阶段-PA1-NEMU</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/25/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F">ysyx-预学习阶段-如何科学地提问-读后感</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/01/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E6%80%BB%E7%BB%93">ysyx-预学习阶段-总结</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E7%94%A8RTL%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8-%E7%94%A8Chisel%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%91%A8%E6%9C%9Friscv64%E5%A4%84%E7%90%86%E5%99%A8">ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E6%94%AF%E6%8C%81RV64IM%E7%9A%84NEMU-%E7%94%A8NEMU%E8%BF%90%E8%A1%8Criscv64%E7%9A%84%E7%A8%8B%E5%BA%8F">ysyx-B阶段-支持RV64IM的NEMU-用NEMU运行riscv64的程序</a></li>
+</ul>
+<h2 id="WSL"><a href="#WSL" class="headerlink" title="WSL"></a>WSL</h2><h3 id="我为什么选择WSL"><a href="#我为什么选择WSL" class="headerlink" title="我为什么选择WSL"></a>我为什么选择WSL</h3><p>由于ysyx项目必须使用linux环境, 我必须在<code>实际安装/虚拟机/WSL</code>之中选择一个, 最后我选择了WSL. 主要原因如下</p>
+<ul>
+<li>占用空间小</li>
+<li>消耗资源少</li>
+<li>可以与windows共存</li>
+<li>WSL GUI可应付绝大部分需要图形界面的情况</li>
+<li>常用软件都可以使用<del>可以一边打游戏一边听音乐写代码</del></li>
+</ul>
+<h3 id="安装并启用WSL"><a href="#安装并启用WSL" class="headerlink" title="安装并启用WSL"></a>安装并启用WSL</h3><p>事实上微软的官方教程已经很详细了:<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install">官方链接</a>  </p>
+<ol>
+<li>安装之前请确认你的<code>Windows</code>版本是否为<code>Win10 2004以上的版本(包括Win11)</code>, 若版本不够, 请升级你的<code>Windows</code>或者选择<code>其他的linux环境</code>.</li>
+<li>打开你的控制面板, 依次选择<code>程序-程序和功能-启用或关闭Windows功能</code>, 将你看到的带有<code>虚拟机</code>, <code>Linux</code>, <code>子系统</code>, <code>Hyper</code>等字样的选项勾选上后, 重启你的Windows.</li>
+<li>打开你的cmd命令窗口, 输入命令. <del><em><strong>注意</strong></em>: 可能需要魔法</del><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wsl --install</span></span><br></pre></td></tr></table></figure>
+待安装成功后, 直接使用<code>wsl</code>命令启动wsl<br><em><strong>注意</strong></em>: WSL默认安装Ubuntu, 如果想要安装其他Linux发行版, 使用命令查看可用的Linux发行版<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wsl -l -o</span></span><br><span class="line">以下是可安装的有效分发的列表。</span><br><span class="line">使用 &#x27;wsl.exe --install &lt;Distro&gt;&#x27; 安装。</span><br><span class="line"></span><br><span class="line">NAME                                   FRIENDLY NAME</span><br><span class="line">Ubuntu                                 Ubuntu</span><br><span class="line">Debian                                 Debian GNU/Linux</span><br><span class="line">kali-linux                             Kali Linux Rolling</span><br><span class="line">Ubuntu-18.04                           Ubuntu 18.04 LTS</span><br><span class="line">Ubuntu-20.04                           Ubuntu 20.04 LTS</span><br><span class="line">Ubuntu-22.04                           Ubuntu 22.04 LTS</span><br><span class="line">OracleLinux_8_5                        Oracle Linux 8.5</span><br><span class="line">OracleLinux_7_9                        Oracle Linux 7.9</span><br><span class="line">SUSE-Linux-Enterprise-Server-15-SP4    SUSE Linux Enterprise Server 15 SP4</span><br><span class="line">openSUSE-Leap-15.4                     openSUSE Leap 15.4</span><br><span class="line">openSUSE-Tumbleweed                    openSUSE Tumbleweed</span><br></pre></td></tr></table></figure>
+之后使用命令进行安装<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wsl --install -d [发行版名称]</span></span><br></pre></td></tr></table></figure>
+安装完成后, 同样使用<code>wsl</code>命令启动你的wsl<br><strong>常见错误</strong>: 出现了部分Linux打印的信息但是很快就退出回到了cmd怎么办<br>大概率是<em>内核版本</em>问题, 如何更新请STFW</li>
+</ol>
+<h3 id="迁移WSL"><a href="#迁移WSL" class="headerlink" title="迁移WSL"></a>迁移WSL</h3><p>WSL默认安装位置为C盘且无法更改, <del>很反人类对吧</del>, 不想C盘爆炸只能想办法迁移到其他盘. 下面给出我自己的解决方案.  </p>
+<ol>
+<li>打开cmd输入, 查看你已安装的分发名称, 比如我的分发叫做<code>ubuntu-sin</code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wsl -l</span></span><br><span class="line">适用于 Linux 的 Windows 子系统分发:</span><br><span class="line">ubuntu-sin (默认)</span><br></pre></td></tr></table></figure></li>
+<li>使用命令<code>wsl --export [分发名称] [导出的备份名称]</code>导出你已安装的分发(已安装的Linux), 例:<br><em><strong>注意</strong></em>: 导出文件名称最好带上文件路径, 比如<code>C:\Users\yourname\Desktop\ubuntu-sin-backup.tar</code>, 否则你就得慢慢找你导出的文件在哪了.  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --export ubuntu-sin ubuntu-sin-backup.tar</span><br></pre></td></tr></table></figure></li>
+<li>找到你想要安装的路径, 例<code>E\:WSL\</code>, 使用命令<code>wsl --import [分发命名] [安装位置] [导入的分发备份]</code>, 例:<br><em><strong>注意</strong></em>: 新的分发名称不能与已拥有的分发名称相同<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wsl --import ubuntu-sin-new <span class="string">&#x27;E\:WSL\&#x27;</span> <span class="string">&#x27;C:\Users\yourname\Desktop\ubuntu-sin-backup.tar&#x27;</span></span></span><br></pre></td></tr></table></figure></li>
+<li>删除旧的分发<code>wsl --unregister [旧的分发名称]</code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wsl --unregister ubuntu-sin</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io">Sin-kider</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/">https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://sin-kider.github.io" target="_blank">Sin-kider's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ysyx/">ysyx</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/WSL/">WSL</a></div><div class="post_share"><div class="social-share" data-image="/img/resource/head.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023-02-06-Hexo-Butterfly%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" title="Hexo+Butterfly主题Blog搭建指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hexo+Butterfly主题Blog搭建指南</div></div></a></div><div class="next-post pull-right"><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="ysyx-预学习阶段-Linux-基本使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ysyx-预学习阶段-Linux-基本使用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="ysyx-预学习阶段-Linux-基本使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-04</div><div class="title">ysyx-预学习阶段-Linux-基本使用</div></div></a></div><div><a href="/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" title="ysyx-预学习阶段-C语言学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-11</div><div class="title">ysyx-预学习阶段-C语言学习</div></div></a></div><div><a href="/2023-03-18-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83/" title="ysyx-预学习阶段-verilog学习-搭建verilator仿真环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-18</div><div class="title">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</div></div></a></div><div><a href="/2023-03-23-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU/" title="ysyx-预学习阶段-PA1-NEMU"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">ysyx-预学习阶段-PA1-NEMU</div></div></a></div><div><a href="/2023-03-25-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F/" title="ysyx-预学习阶段-如何科学地提问-读后感"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">ysyx-预学习阶段-如何科学地提问-读后感</div></div></a></div><div><a href="/2023-04-01-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E6%80%BB%E7%BB%93/" title="ysyx-预学习阶段-总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">ysyx-预学习阶段-总结</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">ysyx-预学习阶段-Linux-WSL安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%BD%91%E9%A1%B5"><span class="toc-number">1.1.</span> <span class="toc-text">代码仓库及相关网页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%94%9F%E4%B8%80%E8%8A%AF%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E7%9B%AE%E5%BD%95"><span class="toc-number">1.2.</span> <span class="toc-text">一生一芯实验报告目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WSL"><span class="toc-number">1.3.</span> <span class="toc-text">WSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9WSL"><span class="toc-number">1.3.1.</span> <span class="toc-text">我为什么选择WSL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E5%90%AF%E7%94%A8WSL"><span class="toc-number">1.3.2.</span> <span class="toc-text">安装并启用WSL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%81%E7%A7%BBWSL"><span class="toc-number">1.3.3.</span> <span class="toc-text">迁移WSL</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sin-kider</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://sin-kider.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer src="/js/cursor.js"></script><script async src="/js/fps.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,192,203" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ysyx-预学习阶段-Linux-基本使用 | Sin-kider's Blog</title><meta name="author" content="Sin-kider"><meta name="copyright" content="Sin-kider"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#DCDCDC"><meta name="description" content="ysyx-预学习阶段-Linux-基本使用代码仓库及相关网页 ysyx官方网址  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装  ysyx-预学习阶段-Linux-基本使用 ✨ ysyx-预学习阶段-C语言学习 ysyx-预学习阶段-verilog学习-搭建verilator仿真环境 ysyx-预学习阶段-PA1-NEMU ysyx-预学习阶段-如何科学地提问-读后感 ysy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ysyx-预学习阶段-Linux-基本使用">
+<meta property="og:url" content="https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Sin-kider&#39;s Blog">
+<meta property="og:description" content="ysyx-预学习阶段-Linux-基本使用代码仓库及相关网页 ysyx官方网址  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装  ysyx-预学习阶段-Linux-基本使用 ✨ ysyx-预学习阶段-C语言学习 ysyx-预学习阶段-verilog学习-搭建verilator仿真环境 ysyx-预学习阶段-PA1-NEMU ysyx-预学习阶段-如何科学地提问-读后感 ysy">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://sin-kider.github.io/img/resource/head.jpg">
+<meta property="article:published_time" content="2023-03-04T14:20:27.000Z">
+<meta property="article:modified_time" content="2023-09-10T14:25:25.682Z">
+<meta property="article:author" content="Sin-kider">
+<meta property="article:tag" content="ysyx">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="WSL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sin-kider.github.io/img/resource/head.jpg"><link rel="shortcut icon" href="/img/resource/head.jpg"><link rel="canonical" href="https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ysyx-预学习阶段-Linux-基本使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-10 22:25:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#696969')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#DCDCDC')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><span id="fps"></span><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/resource/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Sin-kider's Blog"><span class="site-name">Sin-kider's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ysyx-预学习阶段-Linux-基本使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-04T14:20:27.000Z" title="发表于 2023-03-04 22:20:27">2023-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-10T14:25:25.682Z" title="更新于 2023-09-10 22:25:25">2023-09-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ysyx-预学习阶段-Linux-基本使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ysyx-预学习阶段-Linux-基本使用"><a href="#ysyx-预学习阶段-Linux-基本使用" class="headerlink" title="ysyx-预学习阶段-Linux-基本使用"></a>ysyx-预学习阶段-Linux-基本使用</h1><h2 id="代码仓库及相关网页"><a href="#代码仓库及相关网页" class="headerlink" title="代码仓库及相关网页"></a>代码仓库及相关网页</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ysyx.oscc.cc/">ysyx官方网址</a></li>
+</ul>
+<h2 id="一生一芯实验报告目录"><a href="#一生一芯实验报告目录" class="headerlink" title="一生一芯实验报告目录"></a>一生一芯实验报告目录</h2><ul>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/">ysyx-预学习阶段-Linux-WSL安装</a> </li>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">ysyx-预学习阶段-Linux-基本使用</a> ✨</li>
+<li><a href="https://sin-kider.github.io/2023/03/11/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">ysyx-预学习阶段-C语言学习</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/18/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/23/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU">ysyx-预学习阶段-PA1-NEMU</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/25/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F">ysyx-预学习阶段-如何科学地提问-读后感</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/01/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E6%80%BB%E7%BB%93">ysyx-预学习阶段-总结</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E7%94%A8RTL%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8-%E7%94%A8Chisel%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%91%A8%E6%9C%9Friscv64%E5%A4%84%E7%90%86%E5%99%A8">ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E6%94%AF%E6%8C%81RV64IM%E7%9A%84NEMU-%E7%94%A8NEMU%E8%BF%90%E8%A1%8Criscv64%E7%9A%84%E7%A8%8B%E5%BA%8F">ysyx-B阶段-支持RV64IM的NEMU-用NEMU运行riscv64的程序</a></li>
+</ul>
+<h2 id="课程概览与shell习题"><a href="#课程概览与shell习题" class="headerlink" title="课程概览与shell习题"></a>课程概览与shell习题</h2><ol>
+<li>确认使用的SHELL<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span></span><br><span class="line">/usr/bin/zsh</span><br></pre></td></tr></table></figure></li>
+<li>在 <code>/tmp</code> 下新建一个名为 <code>missing</code> 的文件夹<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">~$ </span><span class="language-bash"><span class="built_in">cd</span> /tmp</span></span><br><span class="line">/tmp $ mkdir missing</span><br><span class="line">/tmp $ find missing -type d</span><br><span class="line">missing </span><br></pre></td></tr></table></figure></li>
+<li>用 <code>man</code> 查看程序 <code>touch</code> 的使用手册<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">man <span class="built_in">touch</span></span></span><br></pre></td></tr></table></figure></li>
+<li>用 <code>touch</code> 在 <code>missing</code> 文件夹中新建一个叫 <code>semester</code> 的文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/tmp $ touch missing/semester</span><br></pre></td></tr></table></figure></li>
+<li>将以下内容一行一行地写入 <code>semester</code> 文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/tmp/missing $ echo &#x27;#!/bin/sh&#x27; &gt; ./semester</span><br><span class="line">/tmp/missing $ echo &#x27;curl --head --silent https://missing.csail.mit.edu&#x27; &gt;&gt; ./semester</span><br></pre></td></tr></table></figure></li>
+<li>尝试执行这个文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/tmp/missing $ chmod ugo+x semester</span><br><span class="line">/tmp/missing $ ./semester</span><br></pre></td></tr></table></figure></li>
+<li>查看 <code>chmod</code> 的手册<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/tmp/missing $ man chmod</span><br></pre></td></tr></table></figure></li>
+<li>使用 <code>chmod</code> 命令改变权限<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/tmp/missing $ chmod ugo+x semester</span><br></pre></td></tr></table></figure></li>
+<li>使用 <code>|</code> 和 <code>&gt;</code> ，将 <code>semester</code> 文件输出的最后更改日期信息，写入主目录下的 <code>last-modified.txt</code> 的文件中<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/tmp/missing $ ./semester | grep -i &quot;last-modified&quot; &gt; ~/last-modified.txt</span><br><span class="line">/tmp/missing $ cd ~</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> ./last-modified.txt</span></span><br><span class="line">last-modified: Mon, 27 Feb 2023 12:16:49 GMT</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Shell-工具和脚本习题"><a href="#Shell-工具和脚本习题" class="headerlink" title="Shell 工具和脚本习题"></a>Shell 工具和脚本习题</h2><ol>
+<li>阅读 <code>man ls</code> ，然后使用 <code>ls</code> 命令进行如下操作：</li>
+</ol>
+<ul>
+<li>所有文件（包括隐藏文件）</li>
+<li>文件打印以人类可以理解的格式输出 (例如，使用454M 而不是 454279954)</li>
+<li>文件以最近访问顺序排序</li>
+<li>以彩色文本显示输出结果<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">man <span class="built_in">ls</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -a</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -l -h -a</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -l -t -a</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -lath --color=auto</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>编写两个bash函数 <code>marco</code> 和 <code>polo</code> 执行下面的操作<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">marco()&#123;</span><br><span class="line">    export MARCO=$(pwd)  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">polo()&#123;</span><br><span class="line">    cd &quot;$MARCO&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>编写一段bash脚本，运行如下的脚本直到它出错，将它的标准输出和标准错误流记录到文件，并在最后输出所有内容<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/usr/bin/env bash</span></span><br><span class="line">i=0</span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">	./random_test.sh &gt; history.log</span><br><span class="line">	if [[ $? -ne 0 ]]</span><br><span class="line">	then </span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">	 <span class="built_in">echo</span> <span class="string">&quot;error time <span class="variable">$i</span>&quot;</span></span></span><br><span class="line">	 cat history.log</span><br><span class="line">	 break</span><br><span class="line">	fi</span><br><span class="line">	 i=$(($i+1))</span><br><span class="line">done</span><br></pre></td></tr></table></figure></li>
+<li>您的任务是编写一个命令，它可以递归地查找文件夹中所有的HTML文件，并将它们压缩成zip文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find . -name <span class="string">&quot;*.html&quot;</span> | xargs --delimiter=<span class="string">&quot;\n\b&quot;</span> \</span></span><br><span class="line"><span class="language-bash">zip -r html.zip</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="编辑器-Vim-习题"><a href="#编辑器-Vim-习题" class="headerlink" title="编辑器(Vim)习题"></a>编辑器(Vim)习题</h2><p><em><strong>说明</strong></em>由于我很早之前就配置好了vim, 用了也挺久的, 这里就跳过了. </p>
+<h2 id="数据整理习题"><a href="#数据整理习题" class="headerlink" title="数据整理习题"></a>数据整理习题</h2><ol>
+<li>学习一下这篇简短的 交互式正则表达式教程.<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You&#x27;ve finished the tutorial!</span><br></pre></td></tr></table></figure></li>
+<li>统计words文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/share/dict/words | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot; | grep -E &quot;^([^a]*a)&#123;3&#125;.*$&quot; | grep -v &quot;&#x27;s$&quot; | wc -l</span><br></pre></td></tr></table></figure></li>
+<li>进行原地替换听上去很有诱惑力，例如： <code>sed s/REGEX/SUBSTITUTION/ input.txt &gt; input.txt</code>。但是这并不是一个明智的做法，为什么呢？还是说只有 <code>sed</code>是这样的? 查看 <code>man sed</code> 来完成这个问题<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-i[SUFFIX], --in-place[=SUFFIX]</span><br><span class="line">edit files in place (makes backup if SUFFIX supplied)</span><br></pre></td></tr></table></figure>
+<em><strong>说明</strong></em>在WSL中,有关开关机的习题都无法实验, 所以省略</li>
+</ol>
+<h2 id="命令行环境习题"><a href="#命令行环境习题" class="headerlink" title="命令行环境习题"></a>命令行环境习题</h2><ol>
+<li>我们可以使用类似 <code>ps aux | grep</code> 这样的命令来获取任务的 <code>pid</code> ，然后您可以基于<code>pid</code> 来结束这些进程。但我们其实有更好的方法来做这件事。在终端中执行 <code>sleep 10000</code> 这个任务。然后用 <code>Ctrl-Z</code> 将其切换到后台并使用 <code>bg</code>来继续允许它。现在，使用 <code>pgrep</code> 来查找 <code>pid</code> 并使用 <code>pkill</code> 结束进程而不需要手动输入<code>pid</code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sleep 10000</span><br><span class="line">// Ctrl-z</span><br><span class="line">bg</span><br><span class="line">pgrep sleep</span><br><span class="line">pkill sleep</span><br></pre></td></tr></table></figure></li>
+<li>如果您希望某个进程结束后再开始另外一个进程， 应该如何实现呢？<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sleep 60 &amp;</span><br><span class="line">pgrep sleep | wait; ls</span><br></pre></td></tr></table></figure></li>
+<li>创建一个 <code>dc</code> 别名，它的功能是当我们错误的将 <code>cd</code> 输入为 <code>dc</code> 时也能正确执行<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias dc=cd</span><br></pre></td></tr></table></figure></li>
+<li>执行 <code>history | awk &#39;&#123;$1=&quot;&quot;;print substr($0,2)&#125;&#39; | sort | uniq -c | sort -n | tail -n 10</code> 来获取您最常用的十条命令，尝试为它们创建别名<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  98 cd project</span><br><span class="line"> 101 cd ..</span><br><span class="line"> 105 git add -A</span><br><span class="line"> 107 l</span><br><span class="line"> 113 cd</span><br><span class="line"> 139 v</span><br><span class="line"> 171 make run</span><br><span class="line"> 198 make</span><br><span class="line"> 299 ..</span><br><span class="line">1828 ls</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="版本控制-Git-习题"><a href="#版本控制-Git-习题" class="headerlink" title="版本控制(Git)习题"></a>版本控制(Git)习题</h2><ol>
+<li>将版本历史可视化并进行探索<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --all --graph --decorate</span><br></pre></td></tr></table></figure></li>
+<li>是谁最后修改了 README.md文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log README.md</span><br></pre></td></tr></table></figure></li>
+<li>最后一次修改<code>_config.yml</code> 文件中 <code>collections:</code> 行时的提交信息是什么<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git blame _config.yml | grep collections</span><br></pre></td></tr></table></figure></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io">Sin-kider</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">https://sin-kider.github.io/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://sin-kider.github.io" target="_blank">Sin-kider's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ysyx/">ysyx</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/WSL/">WSL</a></div><div class="post_share"><div class="social-share" data-image="/img/resource/head.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/" title="ysyx-预学习阶段-Linux-WSL安装"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ysyx-预学习阶段-Linux-WSL安装</div></div></a></div><div class="next-post pull-right"><a href="/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" title="ysyx-预学习阶段-C语言学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ysyx-预学习阶段-C语言学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/" title="ysyx-预学习阶段-Linux-WSL安装"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-04</div><div class="title">ysyx-预学习阶段-Linux-WSL安装</div></div></a></div><div><a href="/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" title="ysyx-预学习阶段-C语言学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-11</div><div class="title">ysyx-预学习阶段-C语言学习</div></div></a></div><div><a href="/2023-03-18-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83/" title="ysyx-预学习阶段-verilog学习-搭建verilator仿真环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-18</div><div class="title">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</div></div></a></div><div><a href="/2023-03-23-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU/" title="ysyx-预学习阶段-PA1-NEMU"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">ysyx-预学习阶段-PA1-NEMU</div></div></a></div><div><a href="/2023-03-25-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F/" title="ysyx-预学习阶段-如何科学地提问-读后感"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">ysyx-预学习阶段-如何科学地提问-读后感</div></div></a></div><div><a href="/2023-04-01-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E6%80%BB%E7%BB%93/" title="ysyx-预学习阶段-总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">ysyx-预学习阶段-总结</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">ysyx-预学习阶段-Linux-基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%BD%91%E9%A1%B5"><span class="toc-number">1.1.</span> <span class="toc-text">代码仓库及相关网页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%94%9F%E4%B8%80%E8%8A%AF%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E7%9B%AE%E5%BD%95"><span class="toc-number">1.2.</span> <span class="toc-text">一生一芯实验报告目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88%E4%B8%8Eshell%E4%B9%A0%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">课程概览与shell习题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell-%E5%B7%A5%E5%85%B7%E5%92%8C%E8%84%9A%E6%9C%AC%E4%B9%A0%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">Shell 工具和脚本习题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8-Vim-%E4%B9%A0%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text">编辑器(Vim)习题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%95%B4%E7%90%86%E4%B9%A0%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">数据整理习题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%8E%AF%E5%A2%83%E4%B9%A0%E9%A2%98"><span class="toc-number">1.7.</span> <span class="toc-text">命令行环境习题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6-Git-%E4%B9%A0%E9%A2%98"><span class="toc-number">1.8.</span> <span class="toc-text">版本控制(Git)习题</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sin-kider</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://sin-kider.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer src="/js/cursor.js"></script><script async src="/js/fps.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,192,203" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

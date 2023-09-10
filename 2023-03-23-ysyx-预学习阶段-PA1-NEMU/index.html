@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ysyx-预学习阶段-PA1-NEMU | Sin-kider's Blog</title><meta name="author" content="Sin-kider"><meta name="copyright" content="Sin-kider"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#DCDCDC"><meta name="description" content="ysyx-预学习阶段-PA1-NEMU代码仓库及相关网页 ysyx官方网址 南京大学计算机系统基础(PA) 为保证学术诚信, 此处及接下来将不会给出任何完整代码, 仅提供大致代码思路及问题处理方法  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装 ysyx-预学习阶段-Linux-基本使用 ysyx-预学习阶段-C语言学习  ysyx-预学习阶段-verilog学习-搭建ver">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ysyx-预学习阶段-PA1-NEMU">
+<meta property="og:url" content="https://sin-kider.github.io/2023-03-23-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU/index.html">
+<meta property="og:site_name" content="Sin-kider&#39;s Blog">
+<meta property="og:description" content="ysyx-预学习阶段-PA1-NEMU代码仓库及相关网页 ysyx官方网址 南京大学计算机系统基础(PA) 为保证学术诚信, 此处及接下来将不会给出任何完整代码, 仅提供大致代码思路及问题处理方法  一生一芯实验报告目录 ysyx-预学习阶段-Linux-WSL安装 ysyx-预学习阶段-Linux-基本使用 ysyx-预学习阶段-C语言学习  ysyx-预学习阶段-verilog学习-搭建ver">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://sin-kider.github.io/img/resource/head.jpg">
+<meta property="article:published_time" content="2023-03-23T14:54:37.000Z">
+<meta property="article:modified_time" content="2023-09-10T14:25:25.682Z">
+<meta property="article:author" content="Sin-kider">
+<meta property="article:tag" content="ysyx">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="NEMU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sin-kider.github.io/img/resource/head.jpg"><link rel="shortcut icon" href="/img/resource/head.jpg"><link rel="canonical" href="https://sin-kider.github.io/2023-03-23-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ysyx-预学习阶段-PA1-NEMU',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-10 22:25:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#696969')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#DCDCDC')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><span id="fps"></span><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/resource/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Sin-kider's Blog"><span class="site-name">Sin-kider's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ysyx-预学习阶段-PA1-NEMU</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-23T14:54:37.000Z" title="发表于 2023-03-23 22:54:37">2023-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-10T14:25:25.682Z" title="更新于 2023-09-10 22:25:25">2023-09-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NEMU/">NEMU</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ysyx-预学习阶段-PA1-NEMU"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ysyx-预学习阶段-PA1-NEMU"><a href="#ysyx-预学习阶段-PA1-NEMU" class="headerlink" title="ysyx-预学习阶段-PA1-NEMU"></a>ysyx-预学习阶段-PA1-NEMU</h1><h2 id="代码仓库及相关网页"><a href="#代码仓库及相关网页" class="headerlink" title="代码仓库及相关网页"></a>代码仓库及相关网页</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ysyx.oscc.cc/">ysyx官方网址</a></li>
+<li><a target="_blank" rel="noopener" href="https://nju-projectn.github.io/ics-pa-gitbook/">南京大学计算机系统基础(PA)</a></li>
+<li>为保证<strong>学术诚信</strong>, 此处及接下来将不会给出任何完整代码, 仅提供大致代码思路及问题处理方法</li>
+</ul>
+<h2 id="一生一芯实验报告目录"><a href="#一生一芯实验报告目录" class="headerlink" title="一生一芯实验报告目录"></a>一生一芯实验报告目录</h2><ul>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/">ysyx-预学习阶段-Linux-WSL安装</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/04/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">ysyx-预学习阶段-Linux-基本使用</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/11/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">ysyx-预学习阶段-C语言学习</a> </li>
+<li><a href="https://sin-kider.github.io/2023/03/18/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</a></li>
+<li><a href="https://sin-kider.github.io/2023/03/23/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU">ysyx-预学习阶段-PA1-NEMU</a> ✨</li>
+<li><a href="https://sin-kider.github.io/2023/03/25/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F">ysyx-预学习阶段-如何科学地提问-读后感</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/01/ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E6%80%BB%E7%BB%93">ysyx-预学习阶段-总结</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E7%94%A8RTL%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8-%E7%94%A8Chisel%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%91%A8%E6%9C%9Friscv64%E5%A4%84%E7%90%86%E5%99%A8">ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器</a></li>
+<li><a href="https://sin-kider.github.io/2023/04/07/ysyx-B%E9%98%B6%E6%AE%B5-%E6%94%AF%E6%8C%81RV64IM%E7%9A%84NEMU-%E7%94%A8NEMU%E8%BF%90%E8%A1%8Criscv64%E7%9A%84%E7%A8%8B%E5%BA%8F">ysyx-B阶段-支持RV64IM的NEMU-用NEMU运行riscv64的程序</a></li>
+</ul>
+<h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h3 id="NEMU是什么"><a href="#NEMU是什么" class="headerlink" title="NEMU是什么?"></a>NEMU是什么?</h3><p>NEMU实际上就是一套模拟硬件系统的程序, 使其他程序能够在NEMU模拟的硬件上运行.</p>
+<h3 id="计算机可以没有寄存器吗"><a href="#计算机可以没有寄存器吗" class="headerlink" title="计算机可以没有寄存器吗?"></a>计算机可以没有寄存器吗?</h3><p>我认为是可行的, 可以使用内存代替cpu内的寄存器. 不过速度会慢很多.</p>
+<h3 id="尝试理解计算机如何计算"><a href="#尝试理解计算机如何计算" class="headerlink" title="尝试理解计算机如何计算"></a>尝试理解计算机如何计算</h3><p>例如, 下面的指令序列可以计算<code>1+2+...+100</code>, 其中<code>r1</code>和<code>r2</code>是两个寄存器, 还有一个隐含的程序计数器<code>PC</code>, 它的初值是<code>0</code>.</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// PC: instruction    | // label: statement</span><br><span class="line">0: mov  r1, 0         |  pc0: r1 = 0;</span><br><span class="line">1: mov  r2, 0         |  pc1: r2 = 0;</span><br><span class="line">2: addi r2, r2, 1     |  pc2: r2 = r2 + 1;</span><br><span class="line">3: add  r1, r1, r2    |  pc3: r1 = r1 + r2;</span><br><span class="line">4: blt  r2, 100, 2    |  pc4: if (r2 &lt; 100) goto pc2;   // branch if less than</span><br><span class="line">5: jmp 5              |  pc5: goto pc5;</span><br></pre></td></tr></table></figure>
+<p>基本流程: </p>
+<ul>
+<li><code>PC</code>初值为<code>0</code>, 取出地址<code>0</code>内的命令<code>mov  r1, 0</code>执行后<code>r1</code>寄存器储存数值为<code>0</code>, 然后<code>PC</code>更新, 值为<code>1</code></li>
+<li><code>PC</code>值为<code>1</code>, 取出地址<code>1</code>内的命令<code>mov  r2, 0</code>执行后<code>r2</code>寄存器储存数值为<code>0</code>, 然后<code>PC</code>更新, 值为<code>2</code></li>
+<li><code>PC</code>值为<code>2</code>, 取出地址<code>2</code>内的命令<code>addi r2, r2, 1</code>执行后<code>r2</code>寄存器储存数值为当前<code>r2</code>值加<code>1</code>, 然后<code>PC</code>更新, 值为<code>3</code></li>
+<li><code>PC</code>值为<code>3</code>, 取出地址<code>3</code>内的命令<code>add  r1, r1, r2</code>执行后<code>r1</code>寄存器储存数值为当前<code>r1</code>值加<code>r2</code>值, 然后<code>PC</code>更新, 值为<code>4</code></li>
+<li><code>PC</code>值为<code>4</code>, 取出地址<code>4</code>内的命令<code>blt  r2, 100, 2</code>执行后若<code>r2</code>小于<code>100</code>, <code>PC</code>更新, 值为<code>2</code></li>
+<li><code>PC</code>值为<code>5</code>, 取出地址<code>5</code>内的命令<code>jmp 5</code>执行后, <code>PC</code>更新, 值为<code>5</code></li>
+</ul>
+<h3 id="为什么-init-monitor-全部都是函数"><a href="#为什么-init-monitor-全部都是函数" class="headerlink" title="为什么 init_monitor() 全部都是函数?"></a>为什么 init_monitor() 全部都是函数?</h3><p>将复杂或重复的功能进行分段封装, 有利于理清思路与后期维护</p>
+<h3 id="int-argc-char-argv-是从哪里来的呢"><a href="#int-argc-char-argv-是从哪里来的呢" class="headerlink" title="int argc, char *argv[]是从哪里来的呢?"></a><code>int argc, char *argv[]</code>是从哪里来的呢?</h3><p>STFW后发现这两个参数为操作系统提供的, 用于命令行参数获取</p>
+<h3 id="解决运行NEMU报错"><a href="#解决运行NEMU报错" class="headerlink" title="解决运行NEMU报错"></a>解决运行NEMU报错</h3><p>根据报错信息分析, 在<code>src/monitor/monitor.c:21</code>处发生了<code>assert</code>, 删除对应代码后运行正常</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[src/monitor/monitor.c:20 welcome] Exercise: Please remove me in the source code and compile NEMU again.</span><br><span class="line">riscv32-nemu-interpreter: src/monitor/monitor.c:21: welcome: Assertion `0&#x27; failed.</span><br></pre></td></tr></table></figure>
+<h3 id="在cmd-c-函数中-调用cpu-exec-的时候传入了参数-1-你知道这是什么意思吗"><a href="#在cmd-c-函数中-调用cpu-exec-的时候传入了参数-1-你知道这是什么意思吗" class="headerlink" title="在cmd_c()函数中, 调用cpu_exec()的时候传入了参数-1, 你知道这是什么意思吗?"></a>在<code>cmd_c()</code>函数中, 调用<code>cpu_exec()</code>的时候传入了参数<code>-1</code>, 你知道这是什么意思吗?</h3><p>本来以为特意定义了输入<code>-1</code>时持续运行, <code>RTFSC</code>后发现只是利用负数赋值给<code>unsigned</code>类型变量会变成该类型最大值, 变相的一直运行<del>我怎么没想过这样玩</del></p>
+<h3 id="“调用cpu-exec-的时候传入了参数-1“-这一做法属于未定义行为吗-请查阅C99手册确认你的想法"><a href="#“调用cpu-exec-的时候传入了参数-1“-这一做法属于未定义行为吗-请查阅C99手册确认你的想法" class="headerlink" title="“调用cpu_exec()的时候传入了参数-1“, 这一做法属于未定义行为吗? 请查阅C99手册确认你的想法."></a>“调用<code>cpu_exec()</code>的时候传入了参数<code>-1</code>“, 这一做法属于未定义行为吗? 请查阅C99手册确认你的想法.</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In practice many portable C programs assume that signed integer overflow wraps around reliably using two’s complement arithmetic. Yet the C standard says that program behavior is undefined on overflow, and in a few cases C programs do not work on some modern implementations because their overflows do not wrap around as their authors expected. Conversely, in signed integer remainder, the C standard requires overflow behavior that is commonly not implemented.</span><br></pre></td></tr></table></figure>
+<p>RTFM的结果是, 有符号溢出是未定义的, 但是无符号不是  </p>
+<h3 id="谁来指示程序的结束"><a href="#谁来指示程序的结束" class="headerlink" title="谁来指示程序的结束?"></a>谁来指示程序的结束?</h3><p>STFW发现在<code>main</code>函数前后都有其他命令在运行, 例如<code>atexit</code>函数可使函数在<code>main</code>函数后运行</p>
+<h3 id="优美地退出"><a href="#优美地退出" class="headerlink" title="优美地退出"></a>优美地退出</h3><p><del>还是RTFSC, 将<code>nemu_state.state</code>赋值<code>NEMU_QUIT</code>后可正常退出</del><br>后续做完回头发现不对, 需要判断<code>nemu_state.halt_ret</code>的值后, 再选择赋值</p>
+<h3 id="简易调试器"><a href="#简易调试器" class="headerlink" title="简易调试器"></a>简易调试器</h3><ol>
+<li>单步执行<ul>
+<li>函数<code>void cpu_exec(uint64_t n)</code>可以执行<code>n</code>步</li>
+</ul>
+</li>
+<li>打印寄存器<ul>
+<li>宏定义<code>#define gpr(idx) (cpu.gpr[check_reg_idx(idx)])</code>可返回对应寄存器的值</li>
+</ul>
+</li>
+<li>扫描内存<ul>
+<li>函数<code>word_t vaddr_read(vaddr_t addr, int len)</code>有相关实现</li>
+</ul>
+</li>
+<li>表达式求值</li>
+</ol>
+<ul>
+<li>下面给出个人的思路: <ul>
+<li>表达式共分为几种类型: 可解析类型<code>十进制数字&#39;123&#39;</code>, <code>十六进制数字&#39;0xAF&#39;</code>, <code>寄存器&#39;$t0&#39;</code>; 普通运算符<code>加&#39;+&#39;</code>, <code>减-</code>, <code>乘&#39;*&#39;</code>, <code>除&#39;/&#39;</code>, <code>左移&#39;&lt;&lt;&#39;</code>, <code>相等&#39;==&#39;</code>等; 特殊运算符<code>解引用&#39;*&#39;</code>, <code>负号&#39;-&#39;</code>; 括号: <code>前括号&#39;(&#39;</code>, <code>后括号&#39;)&#39;</code>;</li>
+<li>识别元素时仅识别可解析类型, 普通运算符和括号. 特殊运算符并不是指功能特殊, 而是<strong>符号</strong>特殊. 比如负号与减号相同, 但是一个是单目运算, 一个是双目运算. 在识别成功”<code>-</code>“号时, 单独判断是否为单目运算符, 再给其赋予类型</li>
+<li>所有运算符有对应优先级, 对应优先级我参考了C语言手册</li>
+<li>表达式递归计算需要对表达式进行分割, 对表达式进行遍历, 找出没被括号包裹的优先级最低的运算符处进行分割</li>
+<li>若当前表达式被前后对应的括号包裹, 就将括号解开</li>
+</ul>
+</li>
+<li>下面给出代码框架<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">expression_value</span><span class="params">(<span class="type">int</span> start,<span class="type">int</span> end)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (start &gt; end) &#123;</span><br><span class="line">    出错, 退出;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> cut_addr = 分割点;</span><br><span class="line">  <span class="keyword">if</span> (start与end正好为前后对应的括号) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">expression_value</span>(start + <span class="number">1</span>, end - <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (start == end) &#123;</span><br><span class="line">    <span class="keyword">if</span> (是十进制数字) &#123;</span><br><span class="line">      <span class="keyword">return</span> 数字的值;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (是十六进制数字) &#123;</span><br><span class="line">      <span class="keyword">return</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (是寄存器) &#123;</span><br><span class="line">      <span class="keyword">return</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line">    错误, 退出;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (判断切割点type[cut_addr]的类型) &#123;</span><br><span class="line">      <span class="keyword">case</span> 加号: <span class="keyword">return</span> <span class="built_in">expression_value</span>(start, cut_add - <span class="number">1</span>) + <span class="built_in">expression_value</span>(cut_add + <span class="number">1</span>, end); <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> 减号: <span class="keyword">return</span> <span class="built_in">expression_value</span>(start, cut_add - <span class="number">1</span>) - <span class="built_in">expression_value</span>(cut_add + <span class="number">1</span>, end); <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="监视点"><a href="#监视点" class="headerlink" title="监视点"></a>监视点</h3><p>监视点实现比较简单, 主要是操作链表, 这里就不展示了<br>监视点自动停止运行只需要在<code>static void trace_and_difftest(Decode *_this, vaddr_t dnpc)</code>函数中添加</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">is_change</span>()) &#123;</span><br><span class="line">  nemu_state.state = NEMU_STOP;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io">Sin-kider</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://sin-kider.github.io/2023-03-23-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU/">https://sin-kider.github.io/2023-03-23-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://sin-kider.github.io" target="_blank">Sin-kider's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ysyx/">ysyx</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/C/">C</a><a class="post-meta__tags" href="/tags/NEMU/">NEMU</a></div><div class="post_share"><div class="social-share" data-image="/img/resource/head.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023-03-18-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83/" title="ysyx-预学习阶段-verilog学习-搭建verilator仿真环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</div></div></a></div><div class="next-post pull-right"><a href="/2023-03-25-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F/" title="ysyx-预学习阶段-如何科学地提问-读后感"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ysyx-预学习阶段-如何科学地提问-读后感</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023-03-11-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" title="ysyx-预学习阶段-C语言学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-11</div><div class="title">ysyx-预学习阶段-C语言学习</div></div></a></div><div><a href="/2023-04-07-ysyx-B%E9%98%B6%E6%AE%B5-%E7%94%A8RTL%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8-%E7%94%A8Chisel%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%91%A8%E6%9C%9Friscv64%E5%A4%84%E7%90%86%E5%99%A8/" title="ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器[施工中]"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-07</div><div class="title">ysyx-B阶段-用RTL实现最简单的处理器-用Chisel实现单周期riscv64处理器[施工中]</div></div></a></div><div><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-WSL%E5%AE%89%E8%A3%85/" title="ysyx-预学习阶段-Linux-WSL安装"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-04</div><div class="title">ysyx-预学习阶段-Linux-WSL安装</div></div></a></div><div><a href="/2023-03-04-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-Linux-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="ysyx-预学习阶段-Linux-基本使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-04</div><div class="title">ysyx-预学习阶段-Linux-基本使用</div></div></a></div><div><a href="/2023-03-18-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-verilog%E5%AD%A6%E4%B9%A0-%E6%90%AD%E5%BB%BAverilator%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83/" title="ysyx-预学习阶段-verilog学习-搭建verilator仿真环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-18</div><div class="title">ysyx-预学习阶段-verilog学习-搭建verilator仿真环境</div></div></a></div><div><a href="/2023-03-25-ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E5%9C%B0%E6%8F%90%E9%97%AE-%E8%AF%BB%E5%90%8E%E6%84%9F/" title="ysyx-预学习阶段-如何科学地提问-读后感"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">ysyx-预学习阶段-如何科学地提问-读后感</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ysyx-%E9%A2%84%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5-PA1-NEMU"><span class="toc-number">1.</span> <span class="toc-text">ysyx-预学习阶段-PA1-NEMU</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%BD%91%E9%A1%B5"><span class="toc-number">1.1.</span> <span class="toc-text">代码仓库及相关网页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%94%9F%E4%B8%80%E8%8A%AF%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E7%9B%AE%E5%BD%95"><span class="toc-number">1.2.</span> <span class="toc-text">一生一芯实验报告目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NEMU%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.3.1.</span> <span class="toc-text">NEMU是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%AF%E4%BB%A5%E6%B2%A1%E6%9C%89%E5%AF%84%E5%AD%98%E5%99%A8%E5%90%97"><span class="toc-number">1.3.2.</span> <span class="toc-text">计算机可以没有寄存器吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97"><span class="toc-number">1.3.3.</span> <span class="toc-text">尝试理解计算机如何计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-init-monitor-%E5%85%A8%E9%83%A8%E9%83%BD%E6%98%AF%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text">为什么 init_monitor() 全部都是函数?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#int-argc-char-argv-%E6%98%AF%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5%E7%9A%84%E5%91%A2"><span class="toc-number">1.3.5.</span> <span class="toc-text">int argc, char *argv[]是从哪里来的呢?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E8%BF%90%E8%A1%8CNEMU%E6%8A%A5%E9%94%99"><span class="toc-number">1.3.6.</span> <span class="toc-text">解决运行NEMU报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8cmd-c-%E5%87%BD%E6%95%B0%E4%B8%AD-%E8%B0%83%E7%94%A8cpu-exec-%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%A0%E5%85%A5%E4%BA%86%E5%8F%82%E6%95%B0-1-%E4%BD%A0%E7%9F%A5%E9%81%93%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%E5%90%97"><span class="toc-number">1.3.7.</span> <span class="toc-text">在cmd_c()函数中, 调用cpu_exec()的时候传入了参数-1, 你知道这是什么意思吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9C%E8%B0%83%E7%94%A8cpu-exec-%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%A0%E5%85%A5%E4%BA%86%E5%8F%82%E6%95%B0-1%E2%80%9C-%E8%BF%99%E4%B8%80%E5%81%9A%E6%B3%95%E5%B1%9E%E4%BA%8E%E6%9C%AA%E5%AE%9A%E4%B9%89%E8%A1%8C%E4%B8%BA%E5%90%97-%E8%AF%B7%E6%9F%A5%E9%98%85C99%E6%89%8B%E5%86%8C%E7%A1%AE%E8%AE%A4%E4%BD%A0%E7%9A%84%E6%83%B3%E6%B3%95"><span class="toc-number">1.3.8.</span> <span class="toc-text">“调用cpu_exec()的时候传入了参数-1“, 这一做法属于未定义行为吗? 请查阅C99手册确认你的想法.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%81%E6%9D%A5%E6%8C%87%E7%A4%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BB%93%E6%9D%9F"><span class="toc-number">1.3.9.</span> <span class="toc-text">谁来指示程序的结束?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%BE%8E%E5%9C%B0%E9%80%80%E5%87%BA"><span class="toc-number">1.3.10.</span> <span class="toc-text">优美地退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E8%B0%83%E8%AF%95%E5%99%A8"><span class="toc-number">1.3.11.</span> <span class="toc-text">简易调试器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E8%A7%86%E7%82%B9"><span class="toc-number">1.3.12.</span> <span class="toc-text">监视点</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sin-kider</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://sin-kider.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer src="/js/cursor.js"></script><script async src="/js/fps.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,192,203" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
